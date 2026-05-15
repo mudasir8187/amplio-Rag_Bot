@@ -1,9 +1,5 @@
 services:
   - type: web
     name: amplio-ragchatbot
-    runtime: python
-    buildCommand: chmod +x build.sh && ./build.sh
-    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.11.0
+    runtime: docker
+    dockerfilePath: ./Dockerfile
