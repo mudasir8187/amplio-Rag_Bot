@@ -177,14 +177,14 @@ if __name__ == '__main__':
             filtered_results = query_vectors(test_user, query, document_ids=[test_doc_id], top_k=2)
             print("Filtered Query Results:")
             for res in filtered_results:
-                print(f"  ID: {res["id"]}, Score: {res["score"]:.4f}, Text: {res["metadata"].get("text")}")
+                print(f"  ID: {res['id']}, Score: {res['score']:.4f}, Text: {res['metadata'].get('text')}")
 
             # 5. Query data (across all docs for the user)
             print(f"\n--- Testing Query (Unfiltered) --- ({test_user})")
             unfiltered_results = query_vectors(test_user, query, top_k=2)
             print("Unfiltered Query Results:")
             for res in unfiltered_results:
-                 print(f"  ID: {res["id"]}, Score: {res["score"]:.4f}, Text: {res["metadata"].get("text")}")
+                print(f"  ID: {res['id']}, Score: {res['score']:.4f}, Text: {res['metadata'].get('text')}")
         else:
             print("Skipping upsert/query tests because embedding generation failed.")
 
