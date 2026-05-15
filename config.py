@@ -7,8 +7,6 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # --- Pinecone Configuration ---
 PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
-print("Pinecone API Key: ", PINECONE_API_KEY)
-print("OpenAI API Key: ", OPENAI_API_KEY)
 PINECONE_ENVIRONMENT = os.getenv("PINECONE_ENVIRONMENT")
 # Define a name for your Pinecone index
 # Ensure this index is created in your Pinecone account with the correct dimension
@@ -32,7 +30,6 @@ OPENAI_CHAT_MODEL = AVAILABLE_OPENAI_CHAT_MODELS[1] # Defaults to the first mode
 
 OPENAI_MAX_TOKENS = 2000
 OPENAI_TEMPERATURE = 0.9
-print(OPENAI_TEMPERATURE)
 
 # Fallback and Evaluation Model Parameters
 OPENAI_FALLBACK_MAX_TOKENS = 50  # Max tokens for the general knowledge fallback answer

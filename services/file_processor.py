@@ -20,6 +20,12 @@ else:
     POPPLER_PATH = None
     TESSERACT_PATH = None
 
+import subprocess
+result = subprocess.run(['which', 'tesseract'], capture_output=True, text=True)
+print("Tesseract location:", result.stdout.strip())
+result2 = subprocess.run(['tesseract', '--version'], capture_output=True, text=True)
+print("Tesseract version:", result2.stdout.strip()) 
+
 # Configure pytesseract to use the specified Tesseract executable
 if TESSERACT_PATH and os.path.exists(TESSERACT_PATH):
     pytesseract.pytesseract.tesseract_cmd = TESSERACT_PATH
