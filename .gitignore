@@ -1,0 +1,19 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# Environment variables — NEVER commit these
+.env
+
+# Windows-specific binaries — not needed on Linux
+Tesseract-OCR/
+Release-24.08.0-0/
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amplio Services — Knowledge Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <div class="brand-text">
+        <span class="brand-name">Amplio Services</span>
+        <span class="brand-tag">Knowledge Studio</span>
+      </div>
+    </div>
+    <p class="header-lede">Upload documents to a named knowledge base, then ask questions grounded in your content.</p>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Main sections">
+    <button type="button" class="tab is-active" role="tab" aria-selected="true" aria-controls="panel-upload" id="tab-upload" data-tab="upload">Build knowledge base</button>
+    <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="panel-query" id="tab-query" data-tab="query">Query documents</button>
+  </nav>
+
+  <main class="panels">
+    <section id="panel-upload" class="panel is-active" role="tabpanel" aria-labelledby="tab-upload">
+      <div class="card">
+        <h2 class="card-title">Create or extend a knowledge base</h2>
+        <p class="card-desc">Choose a display name and upload a file. The same name groups all related documents for querying.</p>
+        <form id="form-upload" class="form" novalidate>
+          <label class="field">
+            <span class="label">Knowledge base name</span>
+            <input type="text" name="name" id="upload-name" required maxlength="100" placeholder="e.g. HR Handbook 2026" autocomplete="off" />
+          </label>
+          <label class="field dropzone" id="dropzone">
+            <input type="file" name="file" id="upload-file" required class="drop-input" />
+            <span class="drop-icon" aria-hidden="true"></span>
+            <span class="drop-text"><strong>Drop a file</strong> or click to browse</span>
+            <span class="drop-file" id="file-label">No file selected</span>
+          </label>
+          <button type="submit" class="btn btn-primary" id="btn-upload">
+            <span class="btn-label">Upload &amp; index</span>
+            <span class="btn-spinner" hidden aria-hidden="true"></span>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <section id="panel-query" class="panel" role="tabpanel" aria-labelledby="tab-query" hidden>
+      <div class="card">
+        <h2 class="card-title">Ask your knowledge base</h2>
+        <p class="card-desc">Use the exact same knowledge base name as when you uploaded. Answers combine retrieval with AI synthesis.</p>
+        <form id="form-query" class="form" novalidate>
+          <label class="field">
+            <span class="label">Knowledge base name</span>
+            <input type="text" name="name" id="query-name" required maxlength="100" placeholder="Same name as upload" autocomplete="off" />
+          </label>
+          <label class="field">
+            <span class="label">Your question</span>
+            <textarea name="query" id="query-text" required rows="4" placeholder="What would you like to know from your documents?"></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary" id="btn-query">
+            <span class="btn-label">Run query</span>
+            <span class="btn-spinner" hidden aria-hidden="true"></span>
+          </button>
+        </form>
+      </div>
+
+      <div id="query-output" class="output card card-output" hidden>
+        <div class="output-meta" id="output-meta"></div>
+        <div class="output-answer" id="output-answer"></div>
+        <details class="sources" id="output-sources-wrap">
+          <summary>Source excerpts <span class="sources-count" id="sources-count"></span></summary>
+          <ul class="sources-list" id="output-sources"></ul>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <footer class="site-footer">
+    <span>&copy; Amplio Services</span>
+    <span class="footer-dot">·</span>
+    <span>Internal knowledge tools</span>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
